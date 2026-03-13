@@ -1,0 +1,211 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background:
+    radial-gradient(circle at top left, rgba(25, 118, 210, 0.18), transparent 30%),
+    radial-gradient(circle at top right, rgba(198, 40, 40, 0.18), transparent 28%),
+    linear-gradient(180deg, #f8fafc 0%, #e8edf5 100%);
+  color: #132238;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.8rem 1.2rem;
+  background: #132238;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid #c5d2e2;
+  border-radius: 14px;
+  padding: 0.8rem 0.9rem;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.app-shell {
+  width: min(1200px, calc(100vw - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.hero,
+.setup-panel,
+.team-panel,
+.history-panel,
+.empty-state {
+  border: 1px solid rgba(19, 34, 56, 0.08);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 50px rgba(19, 34, 56, 0.08);
+}
+
+.hero,
+.setup-panel,
+.history-panel,
+.empty-state {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  color: #47617f;
+}
+
+.hero h1,
+.setup-panel h2,
+.history-panel h2,
+.team-panel h2,
+.player-card h3 {
+  margin: 0;
+}
+
+.status {
+  margin: 0;
+  max-width: 320px;
+  padding: 0.9rem 1rem;
+  border-radius: 18px;
+  background: #132238;
+  color: #fff;
+}
+
+.rosters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.rosters > div,
+.history-list,
+.player-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+
+.draft-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.team-panel {
+  padding: 1.3rem;
+}
+
+.team-header {
+  margin-bottom: 1rem;
+}
+
+.team-header p,
+.player-card p,
+.history-card span {
+  margin: 0.35rem 0 0;
+}
+
+.solo-card {
+  display: grid;
+  gap: 0.3rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(19, 34, 56, 0.95), rgba(46, 78, 116, 0.95));
+  color: #fff;
+}
+
+.player-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.player-card,
+.history-card {
+  padding: 1rem;
+  border-radius: 20px;
+  background: rgba(243, 247, 252, 0.95);
+}
+
+.history-header,
+.save-result {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.save-result {
+  margin: 1rem 0 1.2rem;
+  flex-wrap: wrap;
+}
+
+.save-result label {
+  display: grid;
+  gap: 0.4rem;
+}
+
+@media (max-width: 900px) {
+  .rosters,
+  .draft-layout,
+  .player-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .history-header {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .status {
+    max-width: none;
+    width: 100%;
+  }
+}
