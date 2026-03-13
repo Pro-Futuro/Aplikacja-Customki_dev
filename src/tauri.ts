@@ -32,11 +32,15 @@ export function saveGameResult(params: {
   playersRed: string[];
   chosenBlue: string[];
   chosenRed: string[];
+  points: {
+    blue: number[];
+    red: number[];
+  };
 }) {
   return invoke("save_game_result", {
     winner: params.winner,
     draft: params.draft,
-    points: {},
+    points: params.points,
     playersBlue: params.playersBlue,
     playersRed: params.playersRed,
     chosenBlue: params.chosenBlue,

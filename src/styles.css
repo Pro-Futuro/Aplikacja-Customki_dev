@@ -152,6 +152,10 @@ select {
   margin: 0.35rem 0 0;
 }
 
+.muted {
+  color: #5a718d;
+}
+
 .solo-card {
   display: grid;
   gap: 0.3rem;
@@ -191,10 +195,91 @@ select {
   gap: 0.4rem;
 }
 
+.result-layout,
+.stats-grid,
+.summary-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.result-layout,
+.stats-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.summary-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 1rem 0 1.2rem;
+}
+
+.summary-card,
+.stats-card,
+.result-team-card {
+  padding: 1rem;
+  border-radius: 20px;
+  background: rgba(243, 247, 252, 0.95);
+}
+
+.summary-card {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.summary-card span {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.result-player-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.result-player-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) 120px minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: end;
+  padding: 0.9rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.result-player-row label,
+.inline-select {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stats-table th,
+.stats-table td {
+  padding: 0.75rem 0.8rem;
+  border-bottom: 1px solid #d7e0eb;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.stats-table th {
+  color: #47617f;
+  font-weight: 600;
+}
+
 @media (max-width: 900px) {
   .rosters,
   .draft-layout,
-  .player-grid {
+  .player-grid,
+  .result-layout,
+  .stats-grid,
+  .summary-grid {
     grid-template-columns: 1fr;
   }
 
@@ -207,5 +292,9 @@ select {
   .status {
     max-width: none;
     width: 100%;
+  }
+
+  .result-player-row {
+    grid-template-columns: 1fr;
   }
 }
