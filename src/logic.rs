@@ -77,7 +77,7 @@ const TEAM_CHALLENGES: [&str; 20] = [
 ];
 
 // PEŁNA LISTA ITEMÓW Z CUSTOMKI 2.2
-const ITEMS: [&str; 114] = [
+const ITEMS: [&str; 113] = [
     "Abyssal Mask","Actualizer","Archangel's Staff","Ardent Censer","Axiom Arc","Bandlepipes",
     "Banshee's Veil","Bastionbreaker","Black Cleaver","Blackfire Torch",
     "Blade of the Ruined King","Bloodletter's Curse","Bloodthirster","Celestial Opposition",
@@ -99,7 +99,7 @@ const ITEMS: [&str; 114] = [
     "Sundered Sky","Sunfire Aegis","Terminus","The Collector","Thornmail","Titanic Hydra",
     "Trailblazer","Trinity Force","Umbral Glaive","Unending Despair","Void Staff",
     "Voltaic Cyclosword","Warmog's Armor","Whispering Circlet","Winter's Approach",
-    "Wit's End","Youmuu's Ghostblade","Yun Tal Wildarrows","Zaz'Zak's Realmspike",
+    "Wit's End","Youmuu's Ghostblade","Yun Tal Wildarrows",
     "Zhonya's Hourglass","Imperial Mandate","Locket of the Iron Solari",
     "Moonstone Renewer","Shurelya's Battlesong","Redemption","Knight's Vow",
     "Mikael's Blessing","Zeke's Convergence"
@@ -216,7 +216,11 @@ fn draw_summoners(players_with_lines: &[usize]) -> Vec<(usize, String)> {
 
 fn draw_champions(players_without_lines: &[usize], used: &mut HashSet<String>) -> Vec<(usize, (String, String))>{
     let mut rng = rand::thread_rng();
-    let mut champs = CHAMPIONS.to_vec();
+    let mut champs: Vec<&str> = CHAMPIONS
+        .iter()
+        .copied()
+        .filter(|champ| !used.contains(*champ))
+        .collect();
     champs.shuffle(&mut rng);
 
     let mut result = Vec::new();
@@ -241,6 +245,8 @@ fn draw_champions(players_without_lines: &[usize], used: &mut HashSet<String>) -
         }
 
         result.push((*p, (c1.to_string(), c2.to_string())));
+        used.insert(c1.to_string());
+        used.insert(c2.to_string());
         idx += 2;
     }
 
